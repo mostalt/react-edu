@@ -1,1 +1,1 @@
-# React-edu
+# React-simple-news-app

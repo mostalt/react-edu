@@ -1,5 +1,5 @@
 {
-  "name": "react-edu",
+  "name": "react-simple-news-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mostalt/react-edu"
+    "url": "git+https://github.com/mostalt/react-simple-news-app"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mostalt/react-edu"
+    "url": "https://github.com/mostalt/react-simple-news-app"
   },
-  "homepage": "https://github.com/mostalt/react-edu",
+  "homepage": "https://github.com/mostalt/react-simple-news-app",
   "devDependencies": {
     "babel-core": "^6.13.2",
     "babel-loader": "^6.2.4",
