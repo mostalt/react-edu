@@ -1,7 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Comment from './Comment'
 
 export default class CommentList extends Component {
+
+  static propTypes = {
+    comments: PropTypes.array
+  }
 
   state = {
     isOpen: false
@@ -34,6 +38,7 @@ export default class CommentList extends Component {
   }
 
   toggleOpen = ev => {
+    ev.preventDefault()
     this.setState({
       isOpen: !this.state.isOpen
     })
