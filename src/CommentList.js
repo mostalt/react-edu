@@ -12,7 +12,7 @@ export default class CommentList extends Component {
     const { comments } = this.props
     const { isOpen } = this.state
 
-    console.log(comments);
+    if (!comments || !comments.length) return <p>No comments yet</p>
 
     const commentItems = comments.map(
       comment =>
