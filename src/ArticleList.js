@@ -1,5 +1,6 @@
 import React from 'react'
 import Article from './Article'
+import Chart from './Chart'
 
 export default (props) => {
 
@@ -13,8 +14,11 @@ export default (props) => {
   )
 
   return (
-    <ul>
-      { articleComponents }
-    </ul>
+    <div>
+      <ul>
+        { articleComponents }
+      </ul>
+      <Chart />
+    </div>
   )
 }
