@@ -3,6 +3,18 @@ import CommentList from './CommentList'
 
 export default class Article extends Component {
 
+  componentWillMount() {
+    console.log('mounting');
+  }
+
+  componentDidMount() {
+    console.log('mounted');
+  }
+
+  componentWillUnmount() {
+    console.log('unmounting');
+  }
+
   state = {
     isOpen: false
   }
