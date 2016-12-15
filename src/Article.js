@@ -15,13 +15,9 @@ export default class Article extends Component {
     console.log('unmounting');
   }
 
-  state = {
-    isOpen: false
-  }
 
   render() {
-    const { article } = this.props
-    const { isOpen } = this.state
+    const { article, isOpen, openArticle } = this.props
 
     const body = isOpen ? 
       <section>
@@ -32,7 +28,7 @@ export default class Article extends Component {
 
     return (
       <div>
-        <h3 onClick = { this.toggleOpen } >{ article.title} </h3>
+        <h3 onClick = { openArticle } >{ article.title} </h3>
         { body }
       </div>
     )
