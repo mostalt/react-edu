@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { findDOMNode } from 'react-dom'
 import CommentList from './CommentList'
+import CSSTransition from 'react-addons-css-transition-group'
+import './animate.css'
 
 export default class Article extends Component {
 
@@ -40,7 +42,14 @@ export default class Article extends Component {
     return (
       <div>
         <h3 onClick = { openArticle } >{ article.title} </h3>
-        { body }
+        <CSSTransition
+          component="div"
+          transitionName="article"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+        >
+          { body }
+        </CSSTransition>
       </div>
     )
 
