@@ -5,10 +5,20 @@ class NewArticleForm extends Component {
 
   }
 
+  state = {
+    title: ''
+  }
+
+  handleChange = ev => {
+    this.setState({
+      title: ev.target.value
+    })
+  }
+
   render() {
     return (
       <div>
-        new article title: <input type="text" />
+        new article title: <input type="text" value = {this.state.title} onChange = {this.handleChange} />
       </div>
     )
   }
