@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component as ReactComponent} from 'react'
 
 export default function toggleOpen(Component) {
   return class WrapperComponent extends React.Component {
