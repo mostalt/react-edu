@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import ArticleList from './ArticleList'
 import Chart from './Chart'
 import NewArticleForm from './NewArticleForm.js'
-import Filters from './Filters'
+import Filter from './Filter'
 
 class Container extends Component {
   render() {
@@ -11,7 +11,7 @@ class Container extends Component {
 
     return (
       <div>
-        <Filters articles = { articles } />
+        <Filter articles = { articles } />
         <ArticleList articles = { articles } />
         <Chart />
         <NewArticleForm />
