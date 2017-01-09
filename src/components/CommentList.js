@@ -28,7 +28,10 @@ function CommentList(props) {
 }
 
 CommentList.PropTypes = {
-  comments: PropTypes.array
+  comments: PropTypes.array,
+  //form toggleOpen decorators
+  isOpen: PropTypes.bool,
+  toggleOpen: PropTypes.func
 }
 
 export default toggleOpen(CommentList)

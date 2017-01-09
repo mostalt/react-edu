@@ -5,10 +5,17 @@ import accordion from '../decorators/accordion'
 
 class ArticleList extends Component {
 
+  static PropTypes = {
+    articles: PropTypes.array.isRequired,
+    //from accordion decorators
+    toggleItem: PropTypes.func.isRequired,
+    isItemOpen: PropTypes.func.isRequired
+  }
+
   render() {
 
     const { articles, toggleItem, isItemOpen } = this.props
-    
+
     const articleComponents = articles.map(
       article =>
         <li key = {article.id}>

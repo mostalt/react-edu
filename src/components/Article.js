@@ -1,7 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import CommentList from './CommentList'
 
 export default class Article extends Component {
+
+  static propTypes = {
+    article: PropTypes.object.isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    openArticle: PropTypes.func.isRequired
+  }
 
   componentWillMount() {
     console.log('mounting');
