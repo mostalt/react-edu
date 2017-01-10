@@ -29,5 +29,5 @@ class DatePicker extends Component {
 }
 
 export default connect(state => ({
-  range: state.filters.dateRange
+  range: state.filters.get('dateRange')
 }), { changeDateRange })(DatePicker)
