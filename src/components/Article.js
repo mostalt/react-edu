@@ -3,8 +3,10 @@ import { findDOMNode } from 'react-dom'
 import CommentList from './CommentList'
 import CSSTransition from 'react-addons-css-transition-group'
 import './animate.css'
+import { deleteArticle } from '../AC/articles'
+import { connect } from 'react-redux'
 
-export default class Article extends Component {
+class Article extends Component {
 
   static propTypes = {
     article: PropTypes.object.isRequired,
@@ -42,6 +44,7 @@ export default class Article extends Component {
     return (
       <div>
         <h3 onClick = { openArticle } >{ article.title} </h3>
+        <a href="#" onClick = {this.handleDelete}>delete me</a>
         <CSSTransition
           component="div"
           transitionName="article"
@@ -55,9 +58,17 @@ export default class Article extends Component {
 
   }
 
+  handleDelete = ev => {
+    ev.preventDefault()
+    const { article, deleteArticle } = this.props
+    deleteArticle(article.id)
+  }
+
   toggleOpen = ev => {
     this.setState({
       isOpen: !this.state.isOpen
     })
   }
 }
+
+export default connect(null, { deleteArticle })(Article)
