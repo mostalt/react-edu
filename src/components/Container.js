@@ -3,6 +3,7 @@ import ArticleList from './ArticleList'
 import Chart from './Chart'
 import NewArticleForm from './NewArticleForm.js'
 import Filter from './Filter'
+import Counter from './Counter'
 
 class Container extends Component {
   render() {
@@ -11,6 +12,7 @@ class Container extends Component {
 
     return (
       <div>
+        <Counter />
         <Filter articles = { articles } />
         <ArticleList articles = { articles } />
         <Chart />
