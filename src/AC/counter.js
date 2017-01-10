@@ -1,4 +1,4 @@
-import { INCREMENT } from '../constans'
+import { INCREMENT } from '../constants'
 
 export function increment() {
   const action = {
