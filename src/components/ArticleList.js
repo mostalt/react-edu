@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import Article from './Article'
 import accordion from '../decorators/accordion'
 import { connect } from 'react-redux'
+import { loadAllArticles } from '../AC/articles'
 
 class ArticleList extends Component {
 
@@ -10,6 +11,10 @@ class ArticleList extends Component {
     //from accordion decorators
     toggleItem: PropTypes.func.isRequired,
     isItemOpen: PropTypes.func.isRequired
+  }
+
+  componentDidMount() {
+    this.props.loadAllArticles()
   }
 
   render() {
@@ -51,4 +56,4 @@ export default connect(state => {
   return {
     articles: filteredArticles
   }
-})(accordion(ArticleList))
+}, { loadAllArticles })(accordion(ArticleList))
