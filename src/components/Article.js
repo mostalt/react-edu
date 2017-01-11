@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react'
+import Loader from './Loader'
 import { findDOMNode } from 'react-dom'
 import CommentList from './CommentList'
 import CSSTransition from 'react-addons-css-transition-group'
 import './animate.css'
-import { deleteArticle } from '../AC/articles'
+import { deleteArticle, loadArticle } from '../AC/articles'
 import { connect } from 'react-redux'
 
 class Article extends Component {
@@ -13,13 +14,20 @@ class Article extends Component {
     isOpen: PropTypes.bool.isRequired,
     openArticle: PropTypes.func.isRequired
   }
+  
+  componentWillReceiveProps(nextProps) {
+    const { isOpen, loadArticle, article: { id, text, loading } } = this.props
 
+    if (nextProps.isOpen && !isOpen && !text && !loading) loadArticle(id)
+  }
 
   render() {
     const { article, isOpen, openArticle } = this.props
 
+    const loader = article.loading ? <Loader /> : null
     const body = isOpen ? 
       <section>
+        {loader}
         {article.text}
         <CommentList article = {article} ref = "commentList"/>
       </section> 
@@ -55,4 +63,4 @@ class Article extends Component {
   }
 }
 
-export default connect(null, { deleteArticle })(Article)
+export default connect(null, { deleteArticle, loadArticle })(Article)
