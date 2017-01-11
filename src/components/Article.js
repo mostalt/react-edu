@@ -5,7 +5,6 @@ import CSSTransition from 'react-addons-css-transition-group'
 import './animate.css'
 import { deleteArticle } from '../AC/articles'
 import { connect } from 'react-redux'
-import { getRelation } from '../store/helpers'
 
 class Article extends Component {
 
@@ -15,37 +14,21 @@ class Article extends Component {
     openArticle: PropTypes.func.isRequired
   }
 
-  componentWillMount() {
-    console.log('mounting');
-  }
-
-  componentDidMount() {
-    console.log('mounted');
-  }
-
-  componentWillUnmount() {
-    console.log('unmounting');
-  }
-
-  handleRef(ref) {
-    console.log(findDOMNode(ref));
-  }
-
 
   render() {
-    const { article, comments, isOpen, openArticle } = this.props
+    const { article, isOpen, openArticle } = this.props
 
     const body = isOpen ? 
       <section>
-        { article.text }
-         <CommentList ref = { this.handleRef } comments = { comments } />
+        {article.text}
+        <CommentList article = {article} ref = "commentList"/>
       </section> 
       : null
 
     return (
       <div>
         <h3 onClick = { openArticle } >{ article.title} </h3>
-        <a href="#" onClick = {this.handleDelete}>delete me</a>
+        <a href= "#" onClick = {this.handleDelete}>delete me</a>
         <CSSTransition
           component="div"
           transitionName="article"
@@ -59,7 +42,7 @@ class Article extends Component {
 
   }
 
-  handleDelete = ev => {
+  handleDelete = (ev) => {
     ev.preventDefault()
     const { article, deleteArticle } = this.props
     deleteArticle(article.id)
@@ -72,6 +55,4 @@ class Article extends Component {
   }
 }
 
-export default connect((state, props) => ({
-  comments: getRelation(props.article, 'comments', state)
-}), { deleteArticle })(Article)
+export default connect(null, { deleteArticle })(Article)
