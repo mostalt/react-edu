@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react'
+import { Provider } from 'react-redux'
 import ArticleList from './ArticleList'
 import Chart from './Chart'
 import NewArticleForm from './NewArticleForm.js'
 import Filter from './Filter'
 import Counter from './Counter'
+import store from '../store'
 
 class Container extends Component {
   render() {
@@ -11,13 +13,15 @@ class Container extends Component {
     const { articles } = this.props
 
     return (
-      <div>
-        <Counter />
-        <Filter articles = {[]} />
-        <ArticleList />
-        <Chart />
-        <NewArticleForm />
-      </div>
+      <Provider store = {store}>
+        <div>
+          <Counter />
+          <Filter articles = {[]} />
+          <ArticleList />
+          <Chart />
+          <NewArticleForm />
+        </div>
+      </Provider>
     )
   }
 }
