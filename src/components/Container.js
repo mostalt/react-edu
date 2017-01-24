@@ -16,6 +16,7 @@ class Container extends Component {
             <li><Link to = "/counter" activeClassName = "active" activeStyle = {{color: 'red'}}>Counter</Link></li>
             <li><Link to = "/new" activeClassName = "active" activeStyle = {{color: 'red'}}>New</Link></li>
             <li><Link to = "/filter" activeClassName = "active" activeStyle = {{color: 'red'}}>Filter</Link></li>
+            <li><Link to = "/articles/1234" activeClassName = "active" activeStyle = {{color: 'red'}}>wrong article</Link></li>
           </ul>
           {this.props.children}
         </div>
