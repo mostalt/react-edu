@@ -29,7 +29,7 @@ class ArticleList extends Component {
     const articleComponents = articles.map(
       article =>
         <li key = {article.id}>
-          <Link to = {`/articles/${article.id}`}>{article.title}</Link>
+          <Link to = {`/articles/${article.id}`} activeStyle = {{color: 'red'}}>{article.title}</Link>
         </li>
     )
 
@@ -59,4 +59,4 @@ export default connect(state => {
     loading: articles.get('loading'),
     loaded: articles.get('loaded')
   }
-}, { loadAllArticles })(accordion(ArticleList))
+}, { loadAllArticles }, null, { pure: false })(accordion(ArticleList))

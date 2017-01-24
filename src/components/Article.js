@@ -14,6 +14,12 @@ class Article extends Component {
     isOpen: PropTypes.bool,
     openArticle: PropTypes.func
   }
+
+  static contextTypes = {
+    router: PropTypes.object,
+    store: PropTypes.object,
+    username: PropTypes.string
+  }
   
   componentWillReceiveProps(nextProps) {
     const { isOpen, loadArticle, article, id } = nextProps
@@ -33,6 +39,8 @@ class Article extends Component {
   
 
   render() {
+    console.log('---', this.context)
+
     const { article, isOpen, openArticle } = this.props
     if (!article) return null
 
@@ -77,4 +85,4 @@ class Article extends Component {
 
 export default connect((state, { id }) => ({
   article: state.articles.getIn(['entities', id])
-}), { deleteArticle, loadArticle })(Article)
+}), { deleteArticle, loadArticle }, null, { pure: false })(Article)

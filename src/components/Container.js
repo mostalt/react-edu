@@ -4,6 +4,26 @@ import store from '../store'
 import { Link } from 'react-router'
 
 class Container extends Component {
+
+  static childContextTypes = {
+    username: PropTypes.string
+  }
+
+  getChildContext() {
+    return {
+      username: this.state.username
+    }
+  }
+
+  state = {
+    username: ''
+  }
+
+  handleChange = ev => this.setState({
+    username: ev.target.value
+  })
+
+
   render() {
 
     const { articles } = this.props
@@ -11,6 +31,7 @@ class Container extends Component {
     return (
       <Provider store = {store}>
         <div>
+          <input value = {this.state.username} onChange = {this.handleChange} />
           <ul>
             <li><Link to = "/articles" activeClassName = "active" activeStyle = {{color: 'red'}}>Articles</Link></li>
             <li><Link to = "/counter" activeClassName = "active" activeStyle = {{color: 'red'}}>Counter</Link></li>
