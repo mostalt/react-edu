@@ -39,7 +39,7 @@ class Article extends Component {
   
 
   render() {
-    console.log('---', this.context)
+    //console.log('---', this.context)
 
     const { article, isOpen, openArticle } = this.props
     if (!article) return null

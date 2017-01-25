@@ -4,7 +4,7 @@ import DatePicker from './DatePicker'
 
 class Filter extends Component {
   static propTypes = {
-    articles: PropTypes.array.isRequired
+    articles: PropTypes.array
   }
 
   render() {
