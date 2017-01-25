@@ -4,10 +4,13 @@ import logger from '../middlewares/logger'
 import randomId from '../middlewares/randomId'
 import api from '../middlewares/api'
 import thunk from 'redux-thunk'
+import createLogger from 'redux-logger';
+
+const reduxLogger = createLogger();
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const enhancer = composeEnhancers(applyMiddleware(thunk, api, randomId))
+const enhancer = composeEnhancers(applyMiddleware(thunk, api, randomId, reduxLogger))
 
 const store = createStore(reducer, {}, enhancer)
 
